@@ -69,7 +69,7 @@ Then, as mentioned before, you need to make sure the maas user can ssh to the vb
 
 That is about it.  There are 3 fields.  The first is the Machine Name.  This is the name of the machine you made up when you created the virtual machine in the first place.  That virtual machine should be set to boot from lan.
 
-[alt text][bootfromlan]
+![alt text][bootfromlan]
 
 
 ## Notes
