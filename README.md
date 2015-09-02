@@ -14,14 +14,14 @@ This is a very simple hack of the MaaS source code with accomplishes a couple of
 
 ## Installation
 
-This is a hack. I changed the python file which describes the input screen for node power type.  This file can be overwritten, but, it might be out of date.
+This is a hack. I changed the python file which describes the input screen for node power type.  This file can be overwritten, but, it might be out of date.  This file (power_schema.py) is from MaaS 1.8 on launchpad.  It would be the safest thing to just edit the file and insert the new array element as I have listed below.  I include the entire file here just as a reminder to me of what worked. So, with my current version of MaaS I do the overwrite method.
 
 Overwrite:
 ```
 cp power_schema.py /usr/lib/python2.7/dist-packages/provisioningserver/power_schema.py
 ```
 
-Or, to be safer, you can edit that file and insert this section in the JSON_POWER_TYPE_PARAMETERS array:
+This is a better way. You can edit that file and insert this section in the JSON_POWER_TYPE_PARAMETERS array:
 
 Insert:
 ```
@@ -39,12 +39,14 @@ JSON_POWER_TYPE_PARAMETERS = [
     ...
 ```
 
-Also, there is a new file which needs to be copied to the MaaS template directory:
+Also, there is a new file which needs to be copied to the MaaS template directory.  This is a completely new file with handles the power stuff for the new power type:
 
 Template:
 ```
 cp vboxmanage.template /etc/maas/templates/power/.
 ```
+
+Then, as mentioned before, you need to make sure the maas user can ssh to the vbox_user@vbox_address.  That is an ssh authorized_keys thing, I'll leave that up to the reader.
 
 That is about it.  There are 3 fields.  The first is the Machine Name.  This is the name of the machine you made up when you created the virtual machine in the first place.  That virtual machine should be set to boot from lan.
 
