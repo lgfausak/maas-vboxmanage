@@ -4,7 +4,7 @@
 main() {
     case $1 in
     'on'|'off')
-        ssh "$2" /usr/local/bin/vboxmanage startvm "$3" # --type headless
+        ssh "$2" /usr/local/bin/vboxmanage startvm "$3" --type headless
         ;;
     *)
         echo "Unknown power command: '$1'" >&2
